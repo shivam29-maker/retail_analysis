@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         LABS = credentials('labcreds')
-        JAVA_HOME = '/opt/bitnami/java'  // Set your JAVA_HOME path here.
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64/bin/java'  // Set your JAVA_HOME path here.
         PATH = "${env.JAVA_HOME}/bin:${env.PATH}"  // Add Java binaries to PATH
     }
     
@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Add deployment steps here (e.g., deploy to a server or cloud)
-                sh 'sshpass -p $LABS_PSW scp -o StrictHostKeyChecking=no -r retailproject.zip $LABS_USR@g02.itversity.com:/home/itv012419/retailproject'
+                sh 'sshpass -p $LABS_PSW scp -o StrictHostKeyChecking=no -r retailproject.zip $LABS_USR@g02.itversity.com:/home/itv021084/retailproject'
             }
         }
     }
