@@ -6,10 +6,9 @@ from pyspark import SparkConf
 
 def get_app_config(env):
     config = configparser.ConfigParser()
-    path = 'E:\demoproject\configs\\application.conf'
+    path = 'configs/application.conf'
     config.read(path)
     app_config = {}
-    
     for key, value in config.items(env):
         app_config[key] = value
     
@@ -17,7 +16,7 @@ def get_app_config(env):
 
 def get_spark_config(env):
     config = configparser.ConfigParser()
-    path = 'E:\demoproject\configs\\application.conf'        
+    path = 'configs/application.conf'        
     config.read(path)
     pyspark_conf = SparkConf()
     

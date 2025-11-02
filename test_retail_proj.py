@@ -31,7 +31,7 @@ def test_filter_closed_orders_df(spark):
 @pytest.mark.skip("work in progress")
 def test_read_app_config():
     config = get_app_config("LOCAL")
-    assert config['orders.file.path'] == 'E:\\demoproject\\data\\orders.csv'
+    assert config['orders.file.path'] == 'data/orders.csv'
 
     
 @pytest.mark.transformation
@@ -44,20 +44,20 @@ def test_count_orders_state(spark, expected_results):
 @pytest.mark.skip
 def test_check_closed_count(spark):
     orders_df = read_orders(spark, "LOCAL")
-    filter_counted = filter_order_generic(orders_df,"CLOSED").count()
+    filter_counted = filter_order_generic(orders_df , "CLOSED").count()
     assert filter_counted == 7556
 
 @pytest.mark.skip
 def test_check_pending_count(spark):
     orders_df = read_orders(spark, "LOCAL")
-    filter_counted = filter_order_generic(orders_df,"PENDING_PAYMENT").count()
+    filter_counted = filter_order_generic(orders_df , "PENDING_PAYMENT").count()
     assert filter_counted == 15030
 
 
 @pytest.mark.skip
 def test_check_complete_count(spark):
     orders_df = read_orders(spark, "LOCAL")
-    filter_counted = filter_order_generic(orders_df,"COMPLETE").count()
+    filter_counted = filter_order_generic(orders_df ,"COMPLETE").count()
     assert filter_counted == 22900
 
 # the above test cases are redundent, here we are going to use parametrized fucntion 
@@ -68,5 +68,5 @@ def test_check_complete_count(spark):
 @pytest.mark.latest
 def test_check_count(spark, status, count):
     orders_df = read_orders(spark, "LOCAL")
-    filter_counted = filter_order_generic(orders_df,status).count()
+    filter_counted = filter_order_generic(orders_df , status).count()
     assert filter_counted == count

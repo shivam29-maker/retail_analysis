@@ -25,7 +25,6 @@ if __name__ == '__main__':
     aggregated_results = DataManipulation.count_orders_state(joined_df)
     counted_for_customer = DataManipulation.count_orders_state(customers_df)
     counted_for_customer.show()
-    counted_for_customer.coalesce(1).write.format("csv").mode("overwrite").option("header", True).save("E:\demoproject\data\\test_results")
 
     logger.info("end of main")
     spark.stop()
