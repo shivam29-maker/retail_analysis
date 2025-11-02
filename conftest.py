@@ -16,4 +16,4 @@ def expected_results(spark):
     "gives expected results"
     results_schema = "state string, count integer"
     return spark.read.format("csv").option("header",True).schema(results_schema) \
-        .load("data/test_results")
+        .load("data/test_results/*")
