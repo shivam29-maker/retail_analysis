@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         LABS = credentials('labcreds')
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64/bin/java'  // Set your JAVA_HOME path here.
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64/'  // Set your JAVA_HOME path here.
         PATH = "${env.JAVA_HOME}/bin:${env.PATH}"  // Add Java binaries to PATH
     }
     
