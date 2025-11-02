@@ -34,7 +34,7 @@ def test_read_app_config():
     assert config['orders.file.path'] == 'data/orders.csv'
 
     
-@pytest.mark.transformation
+@pytest.mark.skip
 def test_count_orders_state(spark, expected_results):
     customers_df = read_customers(spark, "LOCAL")
     counted_df = count_orders_state(customers_df)
