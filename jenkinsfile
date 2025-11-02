@@ -41,6 +41,9 @@ pipeline {
         }
         stage('Package') {
             steps {
+                // STEP 1: Install the 'zip' utility
+                sh 'sudo apt-get update && sudo apt-get install -y zip'
+
                 // Create the zip file but exclude the venv directory
                 sh 'zip -r retailproject.zip . -x "retail_pipeline_venv/*"'
             }
